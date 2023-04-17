@@ -23,6 +23,5 @@ dependencies {
     constraints {
 
     }
-    implementation("com.alibaba.fastjson2:fastjson2:2.0.22")
 }
 

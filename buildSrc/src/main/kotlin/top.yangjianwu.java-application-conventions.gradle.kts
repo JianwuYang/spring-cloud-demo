@@ -11,7 +11,7 @@ plugins {
     id("io.spring.dependency-management")
 }
 
-extra["springCloudVersion"] = "2022.0.0"
+extra["springCloudVersion"] = "2022.0.2"
 
 dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
