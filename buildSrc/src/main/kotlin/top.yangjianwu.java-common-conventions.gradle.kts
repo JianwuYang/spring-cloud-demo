@@ -9,11 +9,11 @@ plugins {
 }
 
 repositories {
+    mavenLocal()
     // 阿里巴巴 maven 仓库镜像
     maven {
         url = uri("https://maven.aliyun.com/repository/public/")
     }
-    mavenLocal()
     mavenCentral()
 }
 

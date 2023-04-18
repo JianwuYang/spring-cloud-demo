@@ -1,10 +1,10 @@
 spring:
   application:
     name: app-resources
-    cloud:
-      consul:
-        host: localhost
-        port: 8500
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
 
 server:
   port: 8080
