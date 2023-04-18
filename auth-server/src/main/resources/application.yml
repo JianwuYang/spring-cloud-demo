@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: auth-server
+    cloud:
+        consul:
+            host: 192.168.31.219
+            port: 8500
+
+server:
+    port: 9000

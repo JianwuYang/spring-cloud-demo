@@ -8,4 +8,4 @@
  */
 
 rootProject.name = "Demo"
-include("app", "client", "base", "config")
+include("app-resource", "app-client", "auth-server", "base", "gateway")
