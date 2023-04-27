@@ -7,14 +7,19 @@ import top.yangjianwu.base.entity.AccountUser;
 @RestController
 public class UserResource {
 
-    @PostMapping("/print")
-    public String print(@RequestBody AccountUser user) {
-        return user.toString();
-    }
-
     @GetMapping("/hello")
     public String hello() {
         return "Hello, World";
+    }
+
+    @GetMapping("/authData")
+    public String authData() {
+        return "authData";
+    }
+
+    @PostMapping("/authData/print")
+    public String print(@RequestBody AccountUser user) {
+        return user.toString();
     }
 
 }

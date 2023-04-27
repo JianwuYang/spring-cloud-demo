@@ -7,4 +7,6 @@ plugins {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt
+    implementation("com.nimbusds:nimbus-jose-jwt:9.31")
 }

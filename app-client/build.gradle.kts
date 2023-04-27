@@ -8,6 +8,14 @@ plugins {
 
 dependencies {
     implementation(project(":base"))
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
     implementation("org.springframework.boot:spring-boot-starter-security")
-	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+    
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+
 }

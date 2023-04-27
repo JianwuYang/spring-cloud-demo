@@ -8,4 +8,13 @@ plugins {
 
 dependencies {
     implementation(project(":base"))
+    
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-resource-server
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
+
 }
