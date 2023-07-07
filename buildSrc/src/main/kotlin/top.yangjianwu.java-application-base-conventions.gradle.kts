@@ -9,16 +9,12 @@ plugins {
     id("io.spring.dependency-management")
 }
 
-extra["springCloudVersion"] = "2022.0.2"
+extra["springCloudVersion"] = "2022.0.3"
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-
-    implementation("org.springframework.cloud:spring-cloud-starter-consul-discovery")
-
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.cloud:spring-cloud-starter-zookeeper-discovery")
 }
 
 dependencyManagement {

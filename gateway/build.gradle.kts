@@ -8,6 +8,6 @@ plugins {
 
 dependencies {
     implementation(project(":base"))
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-gateway
+
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
 }

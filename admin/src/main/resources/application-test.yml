@@ -1,0 +1,10 @@
+server:
+  port: 8082
+
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+  application:
+    name: admin

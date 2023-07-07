@@ -1,19 +1,23 @@
+server:
+  port: 9080
+
 spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+    gateway:
+      routes:
+      - id: admin
+        uri: lb://admin
+        predicates:
+        - name: Path
+          args:
+            PATH: /admin/**
+      - id: biz
+        uri: lb://biz
+        predicates:
+        - name: Path
+          args:
+            PATH: /biz/**
   application:
     name: gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: user
-          uri: lb://app-resources/
-          predicates:
-            - Path=/user/**
-    consul:
-      host: localhost
-      port: 8500
-
-server:
-  port: 8000

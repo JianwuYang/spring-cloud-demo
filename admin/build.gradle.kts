@@ -3,8 +3,9 @@
  */
 
 plugins {
-    id("top.yangjianwu.java-library-conventions")
+    id("top.yangjianwu.java-application-conventions")
 }
 
 dependencies {
+    implementation(project(":base"))
 }
