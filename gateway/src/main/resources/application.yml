@@ -1,10 +1,13 @@
 server:
-  port: 9080
+  port: 8080
+
 
 spring:
   cloud:
     zookeeper:
-      connect-string: localhost:2181
+      connect-string: 10.10.201.17:2181
+      discovery:
+        root: /yangjianwu/services
     gateway:
       routes:
       - id: admin

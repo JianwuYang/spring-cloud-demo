@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8092
 
 spring:
   cloud:
     zookeeper:
       connect-string: 10.10.201.17:2181
       discovery:
-        root: /yangjianwu/services
+        root: /qinbin/services
   application:
     name: biz
