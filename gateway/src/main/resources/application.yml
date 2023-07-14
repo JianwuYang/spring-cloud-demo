@@ -13,14 +13,10 @@ spring:
       - id: admin
         uri: lb://admin
         predicates:
-        - name: Path
-          args:
-            PATH: /admin/**
+          - Path=/admin/**
       - id: biz
         uri: lb://biz
         predicates:
-        - name: Path
-          args:
-            PATH: /biz/**
+          - Path=/biz/**
   application:
     name: gateway
