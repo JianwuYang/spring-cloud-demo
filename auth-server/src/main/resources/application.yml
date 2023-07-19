@@ -1,11 +1,12 @@
 server:
-  port: 8092
+  port: 9000
+
 
 spring:
   cloud:
     zookeeper:
       connect-string: 10.10.201.17:2181
       discovery:
-        root: /qinbin/services
+        root: /yangjianwu/services
   application:
-    name: biz
+    name: auth-server

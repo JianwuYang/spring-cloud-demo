@@ -3,12 +3,12 @@
  */
 
 plugins {
-    id("top.yangjianwu.java-application-base-conventions")
+    id("top.yangjianwu.java-application-conventions")
 }
 
 dependencies {
     implementation(project(":base"))
-
-    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+    implementation("org.springframework:spring-webflux")
+    implementation("io.projectreactor.netty:reactor-netty")
 }

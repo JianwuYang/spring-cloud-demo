@@ -10,3 +10,8 @@ spring:
         root: /yangjianwu/services
   application:
     name: admin
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: lb://auth-server:9000

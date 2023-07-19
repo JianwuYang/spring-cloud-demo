@@ -8,5 +8,6 @@ plugins {
 
 dependencies {
     implementation(project(":base"))
-    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
 }

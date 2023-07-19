@@ -15,8 +15,8 @@ spring:
         predicates:
           - Path=/admin/**
       - id: biz
-        uri: lb://biz
+        uri: lb://qms
         predicates:
-          - Path=/biz/**
+          - Path=/qms/**
   application:
     name: gateway

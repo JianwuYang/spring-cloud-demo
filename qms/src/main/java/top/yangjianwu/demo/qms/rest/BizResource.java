@@ -1,14 +1,14 @@
-package top.yangjianwu.demo.biz.rest;
+package top.yangjianwu.demo.qms.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import top.yangjianwu.demo.base.entity.AccountUser;
 import top.yangjianwu.demo.base.service.biz.BizService;
-import top.yangjianwu.demo.biz.feign.AccountUserClient;
+import top.yangjianwu.demo.qms.feign.AccountUserClient;
 
 @RestController
-@RequestMapping("/biz/test")
+@RequestMapping("/qms/test")
 public class BizResource {
 
     private final BizService bizService;

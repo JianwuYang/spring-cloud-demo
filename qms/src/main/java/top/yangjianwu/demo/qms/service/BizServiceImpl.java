@@ -1,4 +1,4 @@
-package top.yangjianwu.demo.biz.service;
+package top.yangjianwu.demo.qms.service;
 
 import org.springframework.stereotype.Service;
 import top.yangjianwu.demo.base.service.biz.BizService;

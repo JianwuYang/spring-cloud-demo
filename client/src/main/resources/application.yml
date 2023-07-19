@@ -1,0 +1,33 @@
+server:
+  port: 8060
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 10.10.201.17:2181
+      discovery:
+        root: /yangjianwu/services
+  application:
+    name: client
+  security:
+    oauth2:
+      client:
+        registration:
+          client-oidc:
+            provider: auth-server
+            client-id: client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8086/login/oauth2/code/{registrationId}"
+            scope: openid
+            client-name: client-oidc
+          client-authorization-code:
+            provider: auth-server
+            client-id: client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8060/authorized"
+            scope: admin.read
+        provider:
+          auth-server:
+            issuer-uri: lb://auth-server

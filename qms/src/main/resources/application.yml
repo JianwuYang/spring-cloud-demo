@@ -8,4 +8,4 @@ spring:
       discovery:
         root: /yangjianwu/services
   application:
-    name: biz
+    name: qms
