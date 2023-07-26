@@ -1,10 +1,15 @@
 server:
   port: 8060
 
+logging:
+  level:
+    org.springframework.security: debug
+    org.springframework.security.oauth2: debug
+
 spring:
   cloud:
     zookeeper:
-      connect-string: 10.10.201.17:2181
+      connect-string: 127.0.0.1:2181
       discovery:
         root: /yangjianwu/services
   application:
@@ -13,21 +18,22 @@ spring:
     oauth2:
       client:
         registration:
-          client-oidc:
+          app-client-oidc:
             provider: auth-server
-            client-id: client
+            client-id: app-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8086/login/oauth2/code/{registrationId}"
-            scope: openid
-            client-name: client-oidc
-          client-authorization-code:
+            redirect-uri: "http://127.0.0.1:8060/login/oauth2/code/{registrationId}"
+            scope: openid,profile
+            client-name: app-client-oidc
+          app-client-authorization-code:
             provider: auth-server
-            client-id: client
+            client-id: app-client
             client-secret: secret
             authorization-grant-type: authorization_code
             redirect-uri: "http://127.0.0.1:8060/authorized"
             scope: admin.read
+            client-name: app-client-authorization-code
         provider:
           auth-server:
-            issuer-uri: lb://auth-server
+            issuer-uri: http://127.0.0.1:9000

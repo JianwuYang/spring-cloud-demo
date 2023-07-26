@@ -1,11 +1,15 @@
 server:
   port: 8081
 
+logging:
+  level:
+    org.springframework.security: debug
+    org.springframework.security.oauth2: debug
 
 spring:
   cloud:
     zookeeper:
-      connect-string: 10.10.201.17:2181
+      connect-string: 127.0.0.1:2181
       discovery:
         root: /yangjianwu/services
   application:
@@ -14,4 +18,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: lb://auth-server:9000
+          issuer-uri: http://127.0.0.1:9000

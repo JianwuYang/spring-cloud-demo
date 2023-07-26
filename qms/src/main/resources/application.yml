@@ -4,7 +4,7 @@ server:
 spring:
   cloud:
     zookeeper:
-      connect-string: 10.10.201.17:2181
+      connect-string: 127.0.0.1:2181
       discovery:
         root: /yangjianwu/services
   application:
