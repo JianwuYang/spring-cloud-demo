@@ -1,7 +1,12 @@
 package top.yangjianwu.demo.client.rest;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -19,13 +24,7 @@ public class ClientController {
     }
 
     @GetMapping("/getUserInfo")
-    public AccountUser getUserInfo(@RegisteredOAuth2AuthorizedClient("client-authorization-code") OAuth2AuthorizedClient authorizedClient) {
-        return this.webClient
-                .get()
-                .uri("http://127.0.0.1:8081/admin/accountUser/getUserInfo")
-                .attributes(oauth2AuthorizedClient(authorizedClient))
-                .retrieve()
-                .bodyToMono(AccountUser.class)
-                .block();
+    public OAuth2User getUserInfo(@AuthenticationPrincipal OAuth2User user) {
+        return user;
     }
 }

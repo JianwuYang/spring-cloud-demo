@@ -15,7 +15,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests( authorizeRequests ->
                     authorizeRequests
-                        .requestMatchers("/admin/**").hasAuthority("admin.read")
+                        .requestMatchers("/admin/**").hasAuthority("SCOPE_admin.read")
                         .requestMatchers("/api/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -11,11 +11,10 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @EnableWebSecurity
 public class SecurityConfig {
 
-    // @formatter:off
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http,
                                                    ClientRegistrationRepository clientRegistrationRepository) throws Exception {
@@ -32,7 +31,6 @@ public class SecurityConfig {
                         logout.logoutSuccessHandler(oidcLogoutSuccessHandler(clientRegistrationRepository)));
         return http.build();
     }
-    // @formatter:on
 
     private LogoutSuccessHandler oidcLogoutSuccessHandler(
             ClientRegistrationRepository clientRegistrationRepository) {

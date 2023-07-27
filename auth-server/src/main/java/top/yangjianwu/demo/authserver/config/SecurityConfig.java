@@ -45,7 +45,9 @@ public class SecurityConfig {
     @Order(1)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http)
             throws Exception {
+
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
                 .oidc(Customizer.withDefaults());	// Enable OpenID Connect 1.0
         http
@@ -98,8 +100,9 @@ public class SecurityConfig {
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .redirectUri("http://127.0.0.1:8060/login/oauth2/code/app-client-oidc")
-                .redirectUri("http://127.0.0.1:8060/")
+                .redirectUri("http://127.0.0.1:8060/authorized")
                 .postLogoutRedirectUri("http://127.0.0.1:8060/")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)

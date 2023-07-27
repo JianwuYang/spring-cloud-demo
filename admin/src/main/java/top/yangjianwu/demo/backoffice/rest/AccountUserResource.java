@@ -1,5 +1,8 @@
 package top.yangjianwu.demo.backoffice.rest;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.yangjianwu.demo.base.entity.AccountUser;
@@ -15,8 +18,8 @@ public class AccountUserResource {
         this.accountUserService = accountUserService;
     }
 
-    @RequestMapping("/getUserInfo")
-    public AccountUser getUserInfo() {
-        return accountUserService.getUserInfo();
+    @GetMapping("/getUserInfo")
+    public UserDetails getUserInfo(@AuthenticationPrincipal UserDetails userDetails) {
+        return userDetails;
     }
 }

@@ -1,5 +1,7 @@
 package top.yangjianwu.demo.client.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.reactive.LoadBalancedExchangeFilterFunction;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
@@ -14,12 +16,17 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
+
+    @Autowired
+    private LoadBalancedExchangeFilterFunction lbFunction;
+
     @Bean
     public WebClient webClient(OAuth2AuthorizedClientManager authorizedClientManager) {
         ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client =
                 new ServletOAuth2AuthorizedClientExchangeFilterFunction(authorizedClientManager);
         // @formatter:off
         return WebClient.builder()
+                .filter(lbFunction)
                 .apply(oauth2Client.oauth2Configuration())
                 .build();
         // @formatter:on
